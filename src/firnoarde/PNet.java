@@ -17,6 +17,7 @@ public class PNet extends Net{
     }
 
     public void setOutboundOverride(Class<? extends Packet> packet, SendPatch patch) {
+        Log.debug("New Outbound override set @", packet);
         if(sendPatches.containsKey(packet))
             sendPatches.remove(packet);
         sendPatches.put(packet, patch);
@@ -24,6 +25,7 @@ public class PNet extends Net{
 
     // TODO
     public <T> void setInboundOverride(Class<T> packet, Cons<T> l) {
+        Log.debug("New Inbound override set @", packet);
         Vars.net.handleClient(packet, l);
     }
 
