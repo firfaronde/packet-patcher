@@ -15,6 +15,7 @@ public class ClientSnapshotPatch {
                     snapshot.pointerX = 0;
                     snapshot.pointerY = 0;
                 }
+                send.get(packet, false); // send packet via udp
             });
         }
     }

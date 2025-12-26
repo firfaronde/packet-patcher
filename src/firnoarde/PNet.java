@@ -33,7 +33,7 @@ public class PNet extends Net{
             SendPatch p = sendPatches.get(packet.getClass());
             if (p != null) {
                 p.accept(packet, super::send);
-                Log.info("@ patched!", packet);
+                Log.debug("@ patched!", packet);
             } else {
                 super.send(object, reliable);
             }
