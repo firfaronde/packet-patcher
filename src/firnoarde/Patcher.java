@@ -15,7 +15,8 @@ public class Patcher {
     public static void replaceNet() {
         try {
             Net original = Vars.net;
-            PNet patched = new PNet(Reflect.get(original, "provider"));
+            //PNet patched = new PNet(Reflect.get(original, "provider"));
+            PNet patched = new PNet(Vars.platform.getNet());
 
             for (Field field : Net.class.getDeclaredFields()) {
                 field.setAccessible(true);

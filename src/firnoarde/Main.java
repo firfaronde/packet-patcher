@@ -8,6 +8,7 @@ import mindustry.mod.*;
 public class Main extends Mod{
     public Main(){
         Log.info("Loaded constructor.");
+        //Patcher.replaceNet();
 
         Events.on(ClientLoadEvent.class, e -> {
             Patcher.replaceNet();
