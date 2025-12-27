@@ -1,5 +1,6 @@
 package firnoarde;
 
+import arc.scene.ui.layout.Table;
 import arc.struct.IntMap;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
@@ -34,6 +35,10 @@ public class Patcher {
 
                 field.set(patched, src);
             }
+
+            Table tb = Vars.ui.hudGroup.find("fps/ping");
+            tb.find("ping").visible(()->Vars.net.client());;
+            tb.find("tps").visible(()->Vars.net.client());
 
             Vars.net = patched;
             Log.info("Net replaced!");
