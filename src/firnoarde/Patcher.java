@@ -37,8 +37,11 @@ public class Patcher {
             }
 
             Table tb = Vars.ui.hudGroup.find("fps/ping");
-            tb.find("ping").visible(()->Vars.net.client());;
-            tb.find("tps").visible(()->Vars.net.client());
+            tb.find("ping").visible(Vars.net::client);;
+            tb.find("tps").visible(Vars.net::client);
+            Table pl = tb.find("players");
+            if(pl!=null)
+                pl.visible(Vars.net::active);
 
             Vars.net = patched;
             Log.info("Net replaced!");
